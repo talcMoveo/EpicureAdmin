@@ -1,12 +1,19 @@
-<app-popup-window></app-popup-window>
-<hr>
-<app-chefs-form></app-chefs-form>
-<hr>
-<h1>
+<nav>
+  <ul>
+    <li><a routerLink="/chefs">chefs</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+
+
+<!-- <h1>
   navbar
+  <button type="button" (click)="showChefsTable()">chefs</button>
+  <button type="button" (click)="showResTable()">restaurants</button>
+  <button type="button" (click)="showDishesTable()">dishes</button>
 </h1>
-<app-table [data]="chefs" [type]="'chefs'"></app-table>
+<app-table [data]="chefs" [type]="'chefs'" *ngIf="chefsTableShown"></app-table>
 <hr>
-<app-table [data]="restaurants" [type]="'restaurants'"></app-table>
+<app-table [data]="restaurants" [type]="'restaurants'" *ngIf="dishesTableShown"></app-table>
 <hr>
-<app-table [data]="dishes" [type]="'dishes'"></app-table>
+<app-table [data]="dishes" [type]="'dishes'" *ngIf="restaurantsTableShown"></app-table> -->

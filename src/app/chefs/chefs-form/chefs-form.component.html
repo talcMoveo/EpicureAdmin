@@ -1,0 +1,11 @@
+<!-- <img> -->
+<form [formGroup]="chefDetails" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" [value]="chef ? chef.name : ''" formControlName="name"/>
+    <label>Description</label>
+    <input type="text" [value]="chef ? chef.description : ''" formControlName="description"/>
+    <label>Active</label>
+    <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active"/>
+    <button type="submit">Done</button>
+    <button type="button" (click)="closeForm()">Cancel</button>
+</form>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Chef } from '../models/chef.model';
 import { Dish } from '../models/dish.model';
 import { Restaurant } from '../models/restaurant.model';
@@ -13,11 +13,12 @@ import { ModalService } from '../_modal';
 export class TableComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() type: string = '';
+  @Input() keys: string[] = [];
 
-  chefsKeys: string[] = ['name', 'description', 'active'];
-  dishesKeys: string[] = ['name', 'ingredients', 'price', 'restaurant', 'tags', 'active'];
-  restaurantsKeys: string[] = ['name', 'chef', 'rating', 'signature dish', 'active'];
-  keys: string[] = [];
+  @Output() showForm = new EventEmitter<Dish | Restaurant | Chef>();
+
+  // dishesKeys: string[] = ['name', 'ingredients', 'price', 'restaurant', 'tags', 'active'];
+  // restaurantsKeys: string[] = ['name', 'chef', 'rating', 'signature dish', 'active'];
 
   imagesRes: any = {
     Lumina: "https://i.ibb.co/0Yq0xvQ/Lumina.png",
@@ -36,17 +37,10 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.type == 'chefs') {
-      this.keys = this.chefsKeys;
-    } else if (this.type == 'dishes') {
-      this.keys = this.dishesKeys;
-    } else {
-      this.keys = this.restaurantsKeys;
-    }
   }
   
   ngOnChanges(): void {
-    console.log(this.data);
+    // console.log(this.data);
   }
   
   // arrangeKeys = () => {
@@ -69,16 +63,11 @@ export class TableComponent implements OnInit {
   // }
 
   editItem = (item: Dish | Restaurant | Chef) => {
-    // this.manageDataService.editItem(item, this.type);
-    // this.modalService.open(item, this.keys);
-    
-    if (this.type == 'chef') {
-      // open chef editor
-    }
+    this.showForm.emit(item);
   }
 
-  deleteItem = (item: Dish | Restaurant | Chef) => {
-    this.manageDataService.deleteItem(item, this.type);
+  deleteItem = (id: string) => {
+    this.manageDataService.deleteItem(id, this.type);
   }
 
 }

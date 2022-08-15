@@ -1,25 +1,29 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Chef } from '../models/chef.model';
-import { Dish } from '../models/dish.model';
-import { Restaurant } from '../models/restaurant.model';
-import { GetDataService } from './get-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManageDataService {
   rest_api: string = 'http://localhost:3000/api/v1';
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private dataService: GetDataService, private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  editItem = (item: Chef | Restaurant | Dish, type: string) => {
-    // open editor popup
+  addItem = (collection: string, newData: any) => {
+    return(this.http.post(`${this.rest_api}/${collection}`, newData).subscribe((res) => {
+      console.log('res: ', res);
+    }));
   }
 
-  deleteItem = (item: Chef | Restaurant | Dish, type: string) => {
-    console.log(`${this.rest_api}/${type}/${item._id}`);
-    return(this.http.delete(`${this.rest_api}/${type}/${item._id}`).subscribe((res) => {
+  editItem = (id: string, collection: string, newData: any) => {
+    return(this.http.put(`${this.rest_api}/${collection}/${id}`, newData).subscribe((res) => {
+      console.log('res: ', res);
+    }));
+  }
+
+  deleteItem = (id: string, collection: string) => {
+    return(this.http.delete(`${this.rest_api}/${collection}/${id}`).subscribe((res) => {
       console.log('res: ', res);
     }));
   }

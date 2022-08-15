@@ -10,7 +10,7 @@
                 {{ item[key] }}
             </td>
             <button type="button" (click)="editItem(item)">edit</button>
-            <button type="button" (click)="deleteItem(item)">delete</button>
+            <button type="button" (click)="deleteItem(item._id)">delete</button>
         </tr>
     </table>
 </div>

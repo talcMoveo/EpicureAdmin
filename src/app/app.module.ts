@@ -7,20 +7,26 @@ import { PopupWindowComponent } from './popup-window/popup-window.component';
 import { TableComponent } from './table/table.component';
 import { ModalModule } from './_modal';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChefsFormComponent } from './chefs-form/chefs-form.component';
+import { ChefsComponent } from './chefs/chefs.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { ChefsFormComponent } from './chefs/chefs-form/chefs-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     PopupWindowComponent,
-    ChefsFormComponent,
+    ChefsComponent,
+    ChefsFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
