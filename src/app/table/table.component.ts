@@ -14,11 +14,9 @@ export class TableComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() type: string = '';
 
-  showModal: boolean = false;
- 
-  chefsKeys: string[] = ['image', 'name', 'description', 'active'];
-  dishesKeys: string[] = ['image', 'name', 'ingredients', 'price', 'restaurant', 'tags', 'active'];
-  restaurantsKeys: string[] = ['image', 'name', 'chef', 'rating', 'signature dish', 'active'];
+  chefsKeys: string[] = ['name', 'description', 'active'];
+  dishesKeys: string[] = ['name', 'ingredients', 'price', 'restaurant', 'tags', 'active'];
+  restaurantsKeys: string[] = ['name', 'chef', 'rating', 'signature dish', 'active'];
   keys: string[] = [];
 
   imagesRes: any = {
@@ -70,10 +68,13 @@ export class TableComponent implements OnInit {
   //   }
   // }
 
-  editItem = (item: Dish | Restaurant | Chef, modalId: string) => {
+  editItem = (item: Dish | Restaurant | Chef) => {
     // this.manageDataService.editItem(item, this.type);
-    this.showModal = true;
-    this.modalService.open(modalId, item);
+    // this.modalService.open(item, this.keys);
+    
+    if (this.type == 'chef') {
+      // open chef editor
+    }
   }
 
   deleteItem = (item: Dish | Restaurant | Chef) => {

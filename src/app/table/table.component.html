@@ -9,13 +9,8 @@
             <td *ngFor="let key of keys">
                 {{ item[key] }}
             </td>
-            <button type="button" (click)="editItem(item, 'edit-modal')">edit</button>
+            <button type="button" (click)="editItem(item)">edit</button>
             <button type="button" (click)="deleteItem(item)">delete</button>
         </tr>
     </table>
 </div>
-
-<jw-modal id="edit-modal">
-  <h1>hello</h1>
-</jw-modal>
-<!-- <button (click)="openModal('edit-modal')">Open Modal 1</button> -->

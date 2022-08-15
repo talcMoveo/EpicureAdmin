@@ -17,10 +17,10 @@ export class ModalService {
         this.modals = this.modals.filter(x => x.id !== id);
     }
 
-    open(id: string, item: Chef | Restaurant | Dish) {
+    open(id: string, item: Chef | Restaurant | Dish, keys: string[]) {
         // open modal specified by id
         const modal = this.modals.find(x => x.id === id);
-        modal.open(item);
+        modal.open(item, keys);
     }
 
     close(id: string) {

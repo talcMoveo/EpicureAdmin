@@ -4,6 +4,8 @@ import { Dish } from '../models/dish.model';
 import { Restaurant } from '../models/restaurant.model';
 
 import { ModalService } from './modal.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
 @Component({ 
     selector: 'jw-modal', 
@@ -13,21 +15,21 @@ import { ModalService } from './modal.service';
 })
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id!: string;
-    @Input() item!: Chef | Restaurant | Dish;
+    item!: Chef | Restaurant | Dish;
+    keys!: string[];
+    boolKeys!: string[];
     private element: any;
+    modalForm = {} as FormGroup;
 
-    constructor(private modalService: ModalService, private el: ElementRef) {
+    constructor(private modalService: ModalService, private el: ElementRef, private formBuilder: FormBuilder) {
         this.element = el.nativeElement;
     }
 
     ngOnInit(): void {
-        // ensure id attribute exists
         if (!this.id) {
             console.error('modal must have an id');
             return;
         }
-
-        console.log('hi');
 
         // move element to bottom of page (just before </body>) so it can be displayed above everything else
         document.body.appendChild(this.element);
@@ -50,10 +52,19 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
 
     // open modal
-    open(item: Chef | Restaurant | Dish): void {
-        console.log('in modal: ', item)
+    open(item: Chef | Restaurant | Dish, keys: string[]): void {
+        console.log('in modal - item: ', item)
+        this.item = item;
+        this.keys = keys;
         this.element.style.display = 'block';
         document.body.classList.add('jw-modal-open');
+
+        // let formContents = Object.entries(item).map(i => {
+        //     console.log(i);
+        //     return 
+        // })
+
+        // this.modalForm = this.formBuilder.group(item);
     }
 
     // close modal
