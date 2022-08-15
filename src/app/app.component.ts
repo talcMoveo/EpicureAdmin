@@ -3,6 +3,7 @@ import { Chef } from './models/chef.model';
 import { Dish } from './models/dish.model';
 import { Restaurant } from './models/restaurant.model';
 import { GetDataService } from './shared/get-data.service';
+import { ModalService } from './_modal';
 
 @Component({
   selector: 'app-root',

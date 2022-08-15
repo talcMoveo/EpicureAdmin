@@ -2,6 +2,8 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Chef } from '../models/chef.model';
 import { Dish } from '../models/dish.model';
 import { Restaurant } from '../models/restaurant.model';
+import { ManageDataService } from '../shared/manage-data.service';
+import { ModalService } from '../_modal';
 
 @Component({
   selector: 'app-table',
@@ -11,6 +13,8 @@ import { Restaurant } from '../models/restaurant.model';
 export class TableComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() type: string = '';
+
+  showModal: boolean = false;
  
   chefsKeys: string[] = ['image', 'name', 'description', 'active'];
   dishesKeys: string[] = ['image', 'name', 'ingredients', 'price', 'restaurant', 'tags', 'active'];
@@ -30,7 +34,7 @@ export class TableComponent implements OnInit {
     "Yossi Shitrit": "https://i.ibb.co/Ytv0Q83/yossi-shitrit.png",
   };
 
-  constructor() {
+  constructor(private manageDataService: ManageDataService, private modalService: ModalService) {
   }
 
   ngOnInit(): void {
@@ -66,12 +70,14 @@ export class TableComponent implements OnInit {
   //   }
   // }
 
-  editItem = (item: Dish | Restaurant | Chef) => {
-    console.log(item);
+  editItem = (item: Dish | Restaurant | Chef, modalId: string) => {
+    // this.manageDataService.editItem(item, this.type);
+    this.showModal = true;
+    this.modalService.open(modalId, item);
   }
 
   deleteItem = (item: Dish | Restaurant | Chef) => {
-    console.log(item);
+    this.manageDataService.deleteItem(item, this.type);
   }
 
 }

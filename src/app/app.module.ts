@@ -3,16 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { PopupWindowComponent } from './popup-window/popup-window.component';
 import { TableComponent } from './table/table.component';
+import { ModalModule } from './_modal';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableComponent,
+    PopupWindowComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
