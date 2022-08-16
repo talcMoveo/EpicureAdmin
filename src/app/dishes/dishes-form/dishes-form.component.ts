@@ -8,7 +8,7 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
 @Component({
   selector: 'app-dishes-form',
   templateUrl: './dishes-form.component.html',
-  styleUrls: ['./dishes-form.component.scss']
+  styleUrls: ['../../shared/form-styling.component.scss']
 })
 export class DishesFormComponent implements OnInit {
   @Input() newDish!: boolean;

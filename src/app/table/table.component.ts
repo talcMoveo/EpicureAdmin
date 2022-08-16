@@ -3,7 +3,6 @@ import { Chef } from '../models/chef.model';
 import { Dish } from '../models/dish.model';
 import { Restaurant } from '../models/restaurant.model';
 import { ManageDataService } from '../shared/manage-data.service';
-import { ModalService } from '../_modal';
 
 @Component({
   selector: 'app-table',
@@ -33,7 +32,7 @@ export class TableComponent implements OnInit {
     "Yossi Shitrit": "https://i.ibb.co/Ytv0Q83/yossi-shitrit.png",
   };
 
-  constructor(private manageDataService: ManageDataService, private modalService: ModalService) {
+  constructor(private manageDataService: ManageDataService) {
   }
 
   ngOnInit(): void {

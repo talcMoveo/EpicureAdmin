@@ -9,7 +9,7 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
 @Component({
   selector: 'app-restaurants-form',
   templateUrl: './restaurants-form.component.html',
-  styleUrls: ['./restaurants-form.component.scss']
+  styleUrls: ['../../shared/form-styling.component.scss']
 })
 export class RestaurantsFormComponent implements OnInit {
   @Input() newRestaurant!: boolean;

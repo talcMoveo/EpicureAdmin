@@ -1,0 +1,112 @@
+.popup-form {
+    opacity: 1;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 3px solid #f1f1f1;
+    border-radius: 5px;
+    background-color: white;
+    padding: 0 5px 10px 5px;
+
+    .popup-form-container {
+        padding: 0 10px 5px 10px;
+
+        .form-title {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        input[type=text],
+        textarea {
+            display: block;
+            width: 500px;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            border-radius: 5px;
+            background: #e7e7e7;
+
+            &:focus {
+                background-color: rgb(211, 211, 211);
+                outline: none;
+            }
+        }
+
+        .select-wrapper {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            padding: 0 1em 0 0;
+            margin: 0;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            line-height: inherit;
+
+            //maybe
+            z-index: 1;
+
+            &::-ms-expand {
+                display: none;
+            }
+
+            outline: none;
+
+            .form-select {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                border: none;
+                border-radius: 5px;
+                background: #e7e7e7;
+            }
+        }
+
+        input[type=checkbox] {
+            height: 20px;
+            width: 20px;
+        }
+
+        .form-button {
+            background-color: #d87c26;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin: 10px 0;
+            opacity: 0.8;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .cancel-button {
+            background-color: #d82626;
+        }
+    }
+}
+
+.table-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 20px;
+    .add-new-button {
+        align-self: center;
+        padding: 5px 20px;
+        font-size: 15px;
+        background-color:  rgb(149, 149, 149);
+        opacity: 0.6;
+        
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

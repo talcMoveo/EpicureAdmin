@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PopupWindowComponent } from './popup-window/popup-window.component';
 import { TableComponent } from './table/table.component';
-import { ModalModule } from './_modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChefsComponent } from './chefs/chefs.component';
 import { RouterModule } from '@angular/router';
@@ -41,7 +40,6 @@ import { RestaurantsFormComponent } from './restaurants/restaurants-form/restaur
   imports: [
     BrowserModule,
     HttpClientModule,
-    ModalModule,
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,

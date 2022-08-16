@@ -6,7 +6,7 @@ import { GetDataService } from '../shared/get-data.service';
 @Component({
   selector: 'app-dishes',
   templateUrl: './dishes.component.html',
-  styleUrls: ['./dishes.component.scss']
+  styleUrls: ['../shared/form-styling.component.scss']
 })
 export class DishesComponent implements OnInit {
   dishes!: any;

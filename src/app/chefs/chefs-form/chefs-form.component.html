@@ -1,19 +1,20 @@
-<div class="popup-overlay">
-    <div class="popup-form">
-        <div class="popup-form-container">
-            <form class="chef-form" [formGroup]="chefDetails" (ngSubmit)="onSubmit()">
-                <label>Name</label>
-                <input type="text" [value]="chef ? chef.name : ''" formControlName="name" />
-                <label>Description</label>
-                <textarea type="text" [value]="chef ? chef.description : ''" formControlName="description"></textarea>
-                <label>Image URL</label>
-                <input type="text" [value]="chef ? chef.img : ''" formControlName="img" />
-                <label>Active</label>
-                <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active" />
-                <button class="form-button" type="submit">Done</button>
-                <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
-            </form>
+<div class="popup-form">
+    <div class="popup-form-container">
+        <div class="form-title">
+            <p>{{newChef ? "Add Chef" : "Update Chef"}}</p>
         </div>
+        <form class="chef-form" [formGroup]="chefDetails" (ngSubmit)="onSubmit()">
+            <label>Name</label>
+            <input type="text" [value]="chef ? chef.name : ''" formControlName="name" />
+            <label>Description</label>
+            <textarea type="text" [value]="chef ? chef.description : ''" formControlName="description"></textarea>
+            <label>Image URL</label>
+            <input type="text" [value]="chef ? chef.img : ''" formControlName="img" />
+            <label>Active</label>
+            <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active" />
+            <button class="form-button" type="submit">Done</button>
+            <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
+        </form>
     </div>
 </div>
 

@@ -1,30 +1,33 @@
-<div class="dish-form-wrapper">
-    <div class="dish-form-wrapper-container">
+<div class="popup-form">
+    <div class="popup-form-container">
+        <div class="form-title">
+            <p>{{newDish ? "Add Dish" : "Update Dish"}}</p>
+        </div>
         <form class="dish-form" [formGroup]="dishDetails" (ngSubmit)="onSubmit()">
-            <label class="dish-form-label">Name</label>
-            <input class="dish-form-input" type="text" [value]="dish ? dish.name : ''" formControlName="name" />
-            <label class="dish-form-label">ingredients</label>
-            <input class="dish-form-input" type="text" [value]="dish ? dish.ingredients : ''"
-            formControlName="ingredients" />
-            <label class="dish-form-label">Image URL</label>
-            <input class="dish-form-input" type="text" [value]="dish ? dish.img : ''" formControlName="img" />
-            <label class="dish-form-label">Price</label>
-            <input class="dish-form-input" type="text" [value]="dish ? dish.price : ''" formControlName="price" />
-            <!-- multiple choice -->
-            <label class="dish-form-label">Tags</label>
-            <input class="dish-form-input" type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
-            <label class="dish-form-label">Restaurant</label>
-            <select class="dish-form-select" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurantRef" >
-                <!-- if there is resturant - show if not then no -->
-                <option> {{dish?.restaurantRef ? dish?.restaurantRef?.name : 'Choose Restaurant'}} </option>
-                <!-- check not prev restaurant -->
-                <option *ngFor="let res of restaurants"> {{res.name}} </option>
-            </select>
-            <label class="dish-form-label">Active</label>
-            <input class="dish-form-input" type="checkbox" [checked]="dish ? dish.active : true"
+            <label>Name</label>
+            <input type="text" [value]="dish ? dish.name : ''" formControlName="name" />
+            <label>ingredients</label>
+            <input type="text" [value]="dish ? dish.ingredients : ''" formControlName="ingredients" />
+            <label>Image URL</label>
+            <input type="text" [value]="dish ? dish.img : ''" formControlName="img" />
+            <label>Price</label>
+            <input type="text" [value]="dish ? dish.price : ''" formControlName="price" />
+            <label>Tags</label>
+            <input type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
+            <label>Restaurant</label>
+            <div class="select-wrapper">
+                <select class="form-select" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurantRef" >
+                    <!-- if there is resturant - show if not then no -->
+                    <option> {{dish?.restaurantRef ? dish?.restaurantRef?.name : 'Choose Restaurant'}} </option>
+                    <!-- check not prev restaurant -->
+                    <option *ngFor="let res of restaurants"> {{res.name}} </option>
+                </select>
+            </div>
+            <label>Active</label>
+            <input type="checkbox" [checked]="dish ? dish.active : true"
                 formControlName="active" />
-            <button class="dish-form-button" type="submit">Done</button>
-            <button class="dish-form-button" type="button" (click)="closeForm()">Cancel</button>
+            <button class="form-button" type="submit">Done</button>
+            <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
         </form>
     </div>
 </div>

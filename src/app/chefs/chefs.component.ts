@@ -6,7 +6,7 @@ import { GetDataService } from '../shared/get-data.service';
 @Component({
   selector: 'app-chefs',
   templateUrl: './chefs.component.html',
-  styleUrls: ['./chefs.component.scss']
+  styleUrls: ['../shared/form-styling.component.scss']
 })
 export class ChefsComponent implements OnInit {
   chefs!: any;

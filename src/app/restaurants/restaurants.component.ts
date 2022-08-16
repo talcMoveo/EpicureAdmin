@@ -5,7 +5,7 @@ import { GetDataService } from '../shared/get-data.service';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
-  styleUrls: ['./restaurants.component.scss']
+  styleUrls: ['../shared/form-styling.component.scss']
 })
 export class RestaurantsComponent implements OnInit {
   restaurants!: any;

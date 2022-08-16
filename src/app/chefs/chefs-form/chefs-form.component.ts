@@ -7,7 +7,7 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
 @Component({
   selector: 'app-chefs-form',
   templateUrl: './chefs-form.component.html',
-  styleUrls: ['./chefs-form.component.scss']
+  styleUrls: ['../../shared/form-styling.component.scss']
 })
 export class ChefsFormComponent implements OnInit, OnChanges {
   @Input() newChef!: boolean;

@@ -51,11 +51,13 @@
             <td class="col-padding" mat-cell *matCellDef="let element"> {{element.active}} </td>
         </ng-container>
         <ng-container matColumnDef="actions">
-            <th class="col-padding" mat-header-cell *matHeaderCellDef>Actions</th>
-            <td class="col-padding" mat-cell *matCellDef="let element">
-                <mat-icon style="margin-right: 5px; cursor: pointer" (click)="editItem(element)">edit</mat-icon>
-                <mat-icon style="cursor: pointer" (click)="deleteItem(element._id)">delete</mat-icon>
-            </td>
+            <div class="actions-wrapper">
+                <th class="col-padding-actions" mat-header-cell *matHeaderCellDef>Actions</th>
+                <td class="col-padding-actions" mat-cell *matCellDef="let element">
+                    <mat-icon style="margin-right: 5px; cursor: pointer" (click)="editItem(element)">edit</mat-icon>
+                    <mat-icon style="cursor: pointer" (click)="deleteItem(element._id)">delete</mat-icon>
+                </td>
+            </div>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
