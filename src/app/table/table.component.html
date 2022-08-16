@@ -1,0 +1,63 @@
+<div id="table-wrapper">
+    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+        <ng-container matColumnDef="image">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Image </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element">
+                <img class="table-img" src="{{ element.img }}" />
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Name </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Description </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ingredients">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Ingredients </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.ingredients}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Price </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tags">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Tags </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.tags}} </td>
+        </ng-container>
+        <ng-container matColumnDef="restaurantRef">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Restaurant </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.restaurantRef ? element.restaurantRef.name : ''}} </td>
+        </ng-container>
+        <ng-container matColumnDef="rating">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Rating </th>
+            <td class="col-padding" mat-cell *matCellDef="let element"> {{element.rating}} </td>
+        </ng-container>
+        <ng-container matColumnDef="chefRef">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Chef </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.chefRef ? element.chefRef.name : ''}} </td>
+        </ng-container>
+        <ng-container matColumnDef="popular">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Popular </th>
+            <td class="col-padding" mat-cell *matCellDef="let element"> {{element.popular}} </td>
+        </ng-container>
+        <ng-container matColumnDef="signatureDish">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Signature Dish </th>
+            <td class="col-padding-text-left" mat-cell *matCellDef="let element"> {{element.signatureDish ? element.signatureDish.name : ''}} </td>
+        </ng-container>
+        <ng-container matColumnDef="active">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef> Active </th>
+            <td class="col-padding" mat-cell *matCellDef="let element"> {{element.active}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th class="col-padding" mat-header-cell *matHeaderCellDef>Actions</th>
+            <td class="col-padding" mat-cell *matCellDef="let element">
+                <mat-icon style="margin-right: 5px; cursor: pointer" (click)="editItem(element)">edit</mat-icon>
+                <mat-icon style="cursor: pointer" (click)="deleteItem(element._id)">delete</mat-icon>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+</div>

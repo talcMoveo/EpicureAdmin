@@ -1,0 +1,33 @@
+<div class="restaurant-form-wrapper">
+    <div class="restaurant-form-wrapper-container">
+        <form class="restaurant-form" [formGroup]="restaurantDetails" (ngSubmit)="onSubmit()">
+            <label class="restaurant-form-label">Name</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.name : ''"
+                formControlName="name" />
+            <label class="restaurant-form-label">Chef</label>
+            <select class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.chefRef : ''"
+                formControlName="chef">
+                <!-- if there is resturant - show if not then no -->
+                <option> {{restaurant?.chefRef ? restaurant?.chefRef?.name : 'Choose Chef'}} </option>
+                <!-- check not prev restaurant -->
+                <option *ngFor="let chef of chefs"> {{chef.name}} </option>
+            </select>
+            <label class="restaurant-form-label">Signature Dish</label>
+            <select class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.signatureDish : ''"
+                formControlName="name">
+                <!-- if there is resturant - show if not then no -->
+                <option> {{restaurant?.signatureDish ? restaurant?.signatureDish?.name : 'Choose Dish'}} </option>
+                <!-- check not prev restaurant -->
+                <option *ngFor="let dish of signatureDishes"> {{dish.name}} </option>
+            </select>
+            <label class="restaurant-form-label">Image URL</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.img : ''"
+                formControlName="img" />
+            <label class="restaurant-form-label">Active</label>
+            <input class="restaurant-form-input" type="checkbox" [checked]="restaurant ? restaurant.active : true"
+                formControlName="active" />
+            <button class="restaurant-form-button" type="submit">Done</button>
+            <button class="restaurant-form-button" type="button" (click)="closeForm()">Cancel</button>
+        </form>
+    </div>
+</div>
