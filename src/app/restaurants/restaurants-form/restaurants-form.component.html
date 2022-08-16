@@ -1,0 +1,20 @@
+<div class="restaurant-form-wrapper">
+    <div class="restaurant-form-wrapper-container">
+        <form class="restaurant-form" [formGroup]="restaurantDetails" (ngSubmit)="onSubmit()">
+            <label class="restaurant-form-label">Name</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.name : ''" formControlName="name" />
+            <label class="restaurant-form-label">Chef</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.chefRef : ''"
+            formControlName="chef" />
+            <label class="restaurant-form-label">Signature Dish</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.signatureDish : ''" formControlName="name" />
+            <label class="restaurant-form-label">Image URL</label>
+            <input class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.img : ''" formControlName="img" />
+            <label class="restaurant-form-label">Active</label>
+            <input class="restaurant-form-input" type="checkbox" [checked]="restaurant ? restaurant.active : true"
+                formControlName="active" />
+            <button class="restaurant-form-button" type="submit">Done</button>
+            <button class="restaurant-form-button" type="button" (click)="closeForm()">Cancel</button>
+        </form>
+    </div>
+</div>

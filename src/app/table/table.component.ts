@@ -13,7 +13,7 @@ import { ModalService } from '../_modal';
 export class TableComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() type: string = '';
-  @Input() keys: string[] = [];
+  @Input() displayedColumns: string[] = [];
 
   @Output() showForm = new EventEmitter<Dish | Restaurant | Chef>();
 
@@ -37,10 +37,10 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.displayedColumns.push('actions');
   }
   
   ngOnChanges(): void {
-    // console.log(this.data);
   }
   
   // arrangeKeys = () => {

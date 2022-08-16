@@ -1,4 +1,6 @@
-<app-table [data]="chefs" [keys]="keys" type="chefs" (showForm)="openForm($event)"></app-table>
-<button type="button" (click)="handleAddChef()">Add New</button>
+<app-table [data]="chefs" [displayedColumns]="keys" type="chefs" (showForm)="openForm($event)"></app-table>
+
+<button mat-button color="secondary" class="add-new-button" type="button" (click)="handleAddChef()">Add New</button>
+
 <app-chefs-form *ngIf="showForm" [newChef]="currentChef == undefined" [chef]="currentChef" (hideForm)="closeForm()">
 </app-chefs-form>

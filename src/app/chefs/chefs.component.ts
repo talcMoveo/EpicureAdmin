@@ -10,10 +10,7 @@ import { GetDataService } from '../shared/get-data.service';
 })
 export class ChefsComponent implements OnInit {
   chefs!: any;
-  images: any = {
-    "Yossi Shitrit": "https://i.ibb.co/Ytv0Q83/yossi-shitrit.png",
-  };
-  keys: string[] = ['name', 'description', 'active'];
+  keys: string[] = ['image', 'name', 'description', 'active'];
   currentChef!: Chef | undefined;
 
   showForm: boolean = false;
@@ -38,5 +35,12 @@ export class ChefsComponent implements OnInit {
 
   closeForm = () => {
     this.showForm = false;
+    this.refreshData();
+  }
+
+  refreshData = () => {
+    this.getDataService.getChefs().subscribe((res) => {
+      this.chefs = res;
+    })
   }
 }

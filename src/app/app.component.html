@@ -1,19 +1,9 @@
-<nav>
-  <ul>
-    <li><a routerLink="/chefs">chefs</a></li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
-
-
-<!-- <h1>
-  navbar
-  <button type="button" (click)="showChefsTable()">chefs</button>
-  <button type="button" (click)="showResTable()">restaurants</button>
-  <button type="button" (click)="showDishesTable()">dishes</button>
-</h1>
-<app-table [data]="chefs" [type]="'chefs'" *ngIf="chefsTableShown"></app-table>
-<hr>
-<app-table [data]="restaurants" [type]="'restaurants'" *ngIf="dishesTableShown"></app-table>
-<hr>
-<app-table [data]="dishes" [type]="'dishes'" *ngIf="restaurantsTableShown"></app-table> -->
+<div class="app-wrapper">
+  <nav class="nav-wrapper">
+    <a class="nav-link" routerLink="/chefs">chefs</a>
+    <a class="nav-link" routerLink="/dishes">dishes</a>
+    <a class="nav-link" routerLink="/restaurants">restaurants</a>
+  </nav>
+  
+  <router-outlet></router-outlet>
+</div>

@@ -10,7 +10,6 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
   styleUrls: ['./chefs-form.component.scss']
 })
 export class ChefsFormComponent implements OnInit, OnChanges {
-
   @Input() newChef!: boolean;
   @Input() chef!: Chef | undefined;
   @Output() hideForm = new EventEmitter<boolean>();
@@ -42,16 +41,9 @@ export class ChefsFormComponent implements OnInit, OnChanges {
       this.manageData.editItem(this.chef._id.toString(), 'chefs', this.chefDetails.value);
     }
     this.closeForm();
-    this.update()
   }
 
   closeForm = () => {
     this.hideForm.emit(true);
-  }
-
-  update = () => {
-    this.getData.getChefs().subscribe((res) => {
-      
-    })
   }
 }

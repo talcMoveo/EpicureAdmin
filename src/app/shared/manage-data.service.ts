@@ -17,7 +17,7 @@ export class ManageDataService {
   }
 
   editItem = (id: string, collection: string, newData: any) => {
-    return(this.http.put(`${this.rest_api}/${collection}/${id}`, newData).subscribe((res) => {
+    return(this.http.patch(`${this.rest_api}/${collection}/${id}`, newData).subscribe((res) => {
       console.log('res: ', res);
     }));
   }

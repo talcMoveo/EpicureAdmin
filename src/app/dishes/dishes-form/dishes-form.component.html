@@ -1,0 +1,25 @@
+<div class="dish-form-wrapper">
+    <div class="dish-form-wrapper-container">
+        <form class="dish-form" [formGroup]="dishDetails" (ngSubmit)="onSubmit()">
+            <!-- img -->
+            <label class="dish-form-label">Name</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.name : ''" formControlName="name" />
+            <label class="dish-form-label">ingredients</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.ingredients : ''"
+            formControlName="ingredients" />
+            <label class="dish-form-label">Image URL</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.img : ''" formControlName="img" />
+            <label class="dish-form-label">Price</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.price : ''" formControlName="price" />
+            <label class="dish-form-label">Tags</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
+            <label class="dish-form-label">Restaurant</label>
+            <input class="dish-form-input" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurant" />
+            <label class="dish-form-label">Active</label>
+            <input class="dish-form-input" type="checkbox" [checked]="dish ? dish.active : true"
+                formControlName="active" />
+            <button class="dish-form-button" type="submit">Done</button>
+            <button class="dish-form-button" type="button" (click)="closeForm()">Cancel</button>
+        </form>
+    </div>
+</div>
