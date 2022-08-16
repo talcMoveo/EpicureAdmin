@@ -2,5 +2,5 @@
 
 <button mat-button color="secondary" class="add-new-button" type="button" (click)="handleAddRestaurant()">Add New</button>
 
-<app-restaurants-form *ngIf="showForm" [newRestaurant]="currentRestaurant == undefined" [restaurant]="currentRestaurant" (hideForm)="closeForm()">
+<app-restaurants-form *ngIf="showForm" [newRestaurant]="currentRestaurant == undefined" [restaurant]="currentRestaurant" [chefs]="chefs" [signatureDishes]="dishes" (hideForm)="closeForm()">
 </app-restaurants-form>

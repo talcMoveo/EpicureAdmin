@@ -11,6 +11,8 @@ export class RestaurantsComponent implements OnInit {
   restaurants!: any;
   keys: string[] = ['image', 'name', 'rating', 'chefRef', 'popular', 'signatureDish', 'active'];
   currentRestaurant!: Restaurant | undefined;
+  chefs!: any;
+  dishes!: any;
 
   showForm: boolean = false;
 
@@ -23,14 +25,25 @@ export class RestaurantsComponent implements OnInit {
     });
   }
 
-  handleAddRestaurant = () => {
+  handleAddRestaurant = async () => {
+    await this.getData();
     this.currentRestaurant = undefined;
     this.showForm = !this.showForm;
   }
 
-  openForm = (event: any) => {
+  openForm = async (event: any) => {
+    await this.getData();
     this.currentRestaurant = event;
     this.showForm = !this.showForm;
+  }
+
+  getData = () => {
+    this.getDataService.getChefs().subscribe((res) => {
+      this.chefs = res;
+    });
+    this.getDataService.getDishes().subscribe((res) => {
+      this.dishes = res;
+    })
   }
 
   closeForm = () => {

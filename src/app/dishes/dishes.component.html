@@ -2,5 +2,5 @@
 
 <button mat-button color="secondary" class="add-new-button" type="button" (click)="handleAddDish()">Add New</button>
 
-<app-dishes-form *ngIf="showForm" [newDish]="currentDish == undefined" [dish]="currentDish" (hideForm)="closeForm()">
+<app-dishes-form *ngIf="showForm" [newDish]="currentDish == undefined" [dish]="currentDish" [restaurants]="restaurants" (hideForm)="closeForm()">
 </app-dishes-form>

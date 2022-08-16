@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Chef } from 'src/app/models/chef.model';
+import { Dish } from 'src/app/models/dish.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { GetDataService } from 'src/app/shared/get-data.service';
 import { ManageDataService } from 'src/app/shared/manage-data.service';
@@ -12,6 +14,8 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
 export class RestaurantsFormComponent implements OnInit {
   @Input() newRestaurant!: boolean;
   @Input() restaurant!: Restaurant | undefined;
+  @Input() chefs!: Chef[];
+  @Input() signatureDishes!: Dish[];
   @Output() hideForm = new EventEmitter<boolean>();
 
   restaurantDetails: FormGroup = new FormGroup({
