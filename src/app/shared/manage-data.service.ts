@@ -12,19 +12,16 @@ export class ManageDataService {
 
   addItem = (collection: string, newData: any) => {
     return(this.http.post(`${this.rest_api}/${collection}`, newData).subscribe((res) => {
-      console.log('res: ', res);
     }));
   }
 
   editItem = (id: string, collection: string, newData: any) => {
     return(this.http.patch(`${this.rest_api}/${collection}/${id}`, newData).subscribe((res) => {
-      console.log('res: ', res);
     }));
   }
 
   deleteItem = (id: string, collection: string) => {
     return(this.http.delete(`${this.rest_api}/${collection}/${id}`).subscribe((res) => {
-      console.log('res: ', res);
     }));
   }
 }

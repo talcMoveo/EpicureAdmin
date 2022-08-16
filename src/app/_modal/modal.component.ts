@@ -53,18 +53,10 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     // open modal
     open(item: Chef | Restaurant | Dish, keys: string[]): void {
-        console.log('in modal - item: ', item)
         this.item = item;
         this.keys = keys;
         this.element.style.display = 'block';
         document.body.classList.add('jw-modal-open');
-
-        // let formContents = Object.entries(item).map(i => {
-        //     console.log(i);
-        //     return 
-        // })
-
-        // this.modalForm = this.formBuilder.group(item);
     }
 
     // close modal

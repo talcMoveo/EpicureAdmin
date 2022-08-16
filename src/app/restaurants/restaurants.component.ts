@@ -21,7 +21,6 @@ export class RestaurantsComponent implements OnInit {
   ngOnInit(): void {
     this.getDataService.getRestaurants().subscribe((res) => {
       this.restaurants = res;
-      console.log(res);
     });
   }
 

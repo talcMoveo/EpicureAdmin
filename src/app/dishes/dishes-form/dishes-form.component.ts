@@ -22,7 +22,7 @@ export class DishesFormComponent implements OnInit {
     ingredients: new FormControl(''),
     price: new FormControl(''),
     tags: new FormControl(''),
-    restaurant: new FormControl(''),
+    restaurantRef: new FormControl(''),
     active: new FormControl(''),
   });
 
@@ -36,21 +36,32 @@ export class DishesFormComponent implements OnInit {
       ingredients: this.dish ? this.dish.ingredients : '',
       price: this.dish ? this.dish.price : '',
       tags: this.dish ? this.dish.tags : '',
-      restaurant: this.dish ? this.dish.restaurantRef : '',
-      active: this.dish ? this.dish.active : true
+      restaurantRef: this.dish ? this.dish.restaurantRef.name : '',
+      active: this.dish ? this.dish.active : true,
     });
   }
 
   ngOnChanges(): void {
   }
 
-  onSubmit = () => {
+  onSubmit = async () => {
+    this.dishDetails.value.restaurantRef = await this.getRestaurantRef(this.dishDetails.value.restaurantRef);
     if (!this.dish) {
       this.manageData.addItem('dishes', this.dishDetails.value);
     } else {
       this.manageData.editItem(this.dish._id.toString(), 'dishes', this.dishDetails.value);
     }
     this.closeForm();
+  }
+
+  getRestaurantRef = (restaurantName: string): Restaurant | undefined => {
+    let restaurantId: any;
+    this.restaurants.forEach(restaurant => {
+      if (restaurant.name === restaurantName) {
+        restaurantId =  restaurant._id;
+      }
+    });
+    return restaurantId;
   }
 
   closeForm = () => {

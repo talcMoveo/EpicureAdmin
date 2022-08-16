@@ -14,7 +14,7 @@
             <label class="dish-form-label">Tags</label>
             <input class="dish-form-input" type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
             <label class="dish-form-label">Restaurant</label>
-            <select class="dish-form-select" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurant" >
+            <select class="dish-form-select" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurantRef" >
                 <!-- if there is resturant - show if not then no -->
                 <option> {{dish?.restaurantRef ? dish?.restaurantRef?.name : 'Choose Restaurant'}} </option>
                 <!-- check not prev restaurant -->

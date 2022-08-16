@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getData().subscribe((res: any) => {
-      // console.log('res: ', res.dishes);
       this.chefs = res.chefs;
       this.restaurants = res.restaurants;
       this.dishes = res.dishes;

@@ -24,11 +24,13 @@ export class ChefsComponent implements OnInit {
   }
 
   handleAddChef = () => {
+    console.log('opening form');
     this.currentChef = undefined;
     this.showForm = !this.showForm;
   }
 
   openForm = (event: any) => {
+    console.log('opening form');
     this.currentChef = event;
     this.showForm = !this.showForm;
   }

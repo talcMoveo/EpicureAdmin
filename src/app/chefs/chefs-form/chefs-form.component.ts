@@ -15,6 +15,7 @@ export class ChefsFormComponent implements OnInit, OnChanges {
   @Output() hideForm = new EventEmitter<boolean>();
 
   chefDetails: FormGroup = new FormGroup({
+    img: new FormControl(''),
     name: new FormControl(''),
     description: new FormControl(''),
     active: new FormControl(''),
@@ -25,6 +26,7 @@ export class ChefsFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.chefDetails.setValue({
+      img: this.chef ? this.chef.img : '',
       name: this.chef ? this.chef.name : '',
       description: this.chef ? this.chef.description : '',
       active: this.chef ? this.chef.active : true
@@ -35,6 +37,7 @@ export class ChefsFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit = () => {
+    console.log(this.chefDetails.value);
     if (!this.chef) {
       this.manageData.addItem('chefs', this.chefDetails.value);
     } else {

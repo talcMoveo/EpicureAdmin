@@ -6,7 +6,7 @@
                 formControlName="name" />
             <label class="restaurant-form-label">Chef</label>
             <select class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.chefRef : ''"
-                formControlName="chef">
+                formControlName="chefRef">
                 <!-- if there is resturant - show if not then no -->
                 <option> {{restaurant?.chefRef ? restaurant?.chefRef?.name : 'Choose Chef'}} </option>
                 <!-- check not prev restaurant -->
@@ -14,7 +14,7 @@
             </select>
             <label class="restaurant-form-label">Signature Dish</label>
             <select class="restaurant-form-input" type="text" [value]="restaurant ? restaurant.signatureDish : ''"
-                formControlName="name">
+                formControlName="signatureDish">
                 <!-- if there is resturant - show if not then no -->
                 <option> {{restaurant?.signatureDish ? restaurant?.signatureDish?.name : 'Choose Dish'}} </option>
                 <!-- check not prev restaurant -->

@@ -21,7 +21,6 @@ export class DishesComponent implements OnInit {
   ngOnInit() {
     this.getDataService.getDishes().subscribe((res) => {
       this.dishes = res;
-      console.log('dishes: ', res);
     });
   }
 
@@ -40,8 +39,7 @@ export class DishesComponent implements OnInit {
   getRestaurants = () => {
     this.getDataService.getRestaurants().subscribe((res) => {
       this.restaurants = res;
-      console.log('restaurants inside dishes: ', this.restaurants);
-    })
+    });
   }
 
   closeForm = () => {

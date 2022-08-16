@@ -21,7 +21,7 @@ export class RestaurantsFormComponent implements OnInit {
   restaurantDetails: FormGroup = new FormGroup({
     img: new FormControl(''),
     name: new FormControl(''),
-    chef: new FormControl(''),
+    chefRef: new FormControl(''),
     signatureDish: new FormControl(''),
     active: new FormControl(''),
   });
@@ -33,7 +33,7 @@ export class RestaurantsFormComponent implements OnInit {
     this.restaurantDetails.setValue({
       img: this.restaurant ? this.restaurant.img : '',
       name: this.restaurant ? this.restaurant.name : '',
-      chef: this.restaurant ? this.restaurant.chefRef : '',
+      chefRef: this.restaurant ? this.restaurant.chefRef : '',
       signatureDish: this.restaurant ? this.restaurant.signatureDish : '',
       active: this.restaurant ? this.restaurant.active : true
     });
@@ -42,13 +42,37 @@ export class RestaurantsFormComponent implements OnInit {
   ngOnChanges(): void {
   }
 
-  onSubmit = () => {
+  onSubmit = async () => {
+    this.restaurantDetails.value.chefRef = await this.getChefRef(this.restaurantDetails.value.chefRef);
+    this.restaurantDetails.value.signatureDish = await this.getDishRef(this.restaurantDetails.value.signatureDish);
     if (!this.restaurant) {
       this.manageData.addItem('restaurants', this.restaurantDetails.value);
     } else {
       this.manageData.editItem(this.restaurant._id.toString(), 'restaurants', this.restaurantDetails.value);
     }
     this.closeForm();
+  }
+
+  getChefRef = (chefName: string): Chef | undefined => {
+    let chefId: any;
+    this.chefs.forEach(chef => {
+      if (chef.name === chefName) {
+        chefId =  chef._id;
+        return chefId;
+      }
+    });
+    return chefId;
+  }
+
+  getDishRef = (dishName: string): Dish | undefined => {
+    let dishId: any;
+    this.signatureDishes.forEach(dish => {
+      if (dish.name === dishName) {
+        dishId =  dish._id;
+        return dishId;
+      }
+    });
+    return dishId;
   }
 
   closeForm = () => {

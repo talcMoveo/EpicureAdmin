@@ -1,19 +1,19 @@
-<div class="chef-form-wrapper">
-    <div class="chef-form-wrapper-container">
-        <form class="chef-form" [formGroup]="chefDetails" (ngSubmit)="onSubmit()">
-            <label class="chef-form-label">Name</label>
-            <input class="chef-form-input" type="text" [value]="chef ? chef.name : ''" formControlName="name" />
-            <label class="chef-form-label">Description</label>
-            <input class="chef-form-input" type="text" [value]="chef ? chef.description : ''"
-            formControlName="description" />
-            <label class="chef-form-label">Image URL</label>
-            <input class="chef-form-input" type="text" [value]="chef ? chef.img : ''" formControlName="img" />
-            <label class="chef-form-label">Active</label>
-            <input class="chef-form-input" type="checkbox" [checked]="chef ? chef.active : true"
-                formControlName="active" />
-            <button class="chef-form-button" type="submit">Done</button>
-            <button class="chef-form-button" type="button" (click)="closeForm()">Cancel</button>
-        </form>
+<div class="popup-overlay">
+    <div class="popup-form">
+        <div class="popup-form-container">
+            <form class="chef-form" [formGroup]="chefDetails" (ngSubmit)="onSubmit()">
+                <label>Name</label>
+                <input type="text" [value]="chef ? chef.name : ''" formControlName="name" />
+                <label>Description</label>
+                <textarea type="text" [value]="chef ? chef.description : ''" formControlName="description"></textarea>
+                <label>Image URL</label>
+                <input type="text" [value]="chef ? chef.img : ''" formControlName="img" />
+                <label>Active</label>
+                <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active" />
+                <button class="form-button" type="submit">Done</button>
+                <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
+            </form>
+        </div>
     </div>
 </div>
 
