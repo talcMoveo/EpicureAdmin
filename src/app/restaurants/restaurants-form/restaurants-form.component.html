@@ -8,7 +8,8 @@
             <input type="text" [value]="restaurant ? restaurant.name : ''" formControlName="name" />
             <label>Chef</label>
             <div class="select-wrapper">
-                <select class="form-select" type="text" [value]="restaurant ? restaurant.chefRef : ''" formControlName="chefRef">
+                <select class="form-select" type="text" [value]="restaurant ? restaurant.chefRef : ''"
+                    formControlName="chefRef">
                     <!-- if there is resturant - show if not then no -->
                     <option> {{restaurant?.chefRef ? restaurant?.chefRef?.name : 'Choose Chef'}} </option>
                     <!-- check not prev restaurant -->
@@ -26,11 +27,12 @@
                 </select>
             </div>
             <label>Image URL</label>
-            <input type="text" [value]="restaurant ? restaurant.img : ''"
-                formControlName="img" />
-            <label>Active
-            <input type="checkbox" [checked]="restaurant ? restaurant.active : true"
-                formControlName="active" class="form-checkbox" /></label>
+            <input type="text" [value]="restaurant ? restaurant.img : ''" formControlName="img" />
+            <label>
+                <input type="checkbox" [checked]="restaurant ? restaurant.active : true" formControlName="active"
+                    class="form-checkbox" />
+                Active
+            </label>
             <button class="form-button" type="submit">Done</button>
             <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
         </form>

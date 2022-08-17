@@ -10,24 +10,12 @@
             <textarea type="text" [value]="chef ? chef.description : ''" formControlName="description"></textarea>
             <label>Image URL</label>
             <input type="text" [value]="chef ? chef.img : ''" formControlName="img" />
-            <label>Active</label>
-            <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active" />
+            <label>
+                <input type="checkbox" [checked]="chef ? chef.active : true" formControlName="active" />
+                Active
+            </label>
             <button class="form-button" type="submit">Done</button>
             <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
         </form>
     </div>
 </div>
-
-
-<!-- <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <input matInput [value]="chef ? chef.name : ''" formControlName="name" />
-</mat-form-field>
-<mat-form-field appearance="fill">
-    <mat-label>Description</mat-label>
-    <textarea matInput [value]="chef ? chef.description : ''" formControlName="description"></textarea>
-</mat-form-field>
-<mat-form-field appearance="fill">
-    <mat-label>Active</mat-label>
-    <mat-checkbox [checked]="chef ? chef.active : true" formControlName="active"></mat-checkbox>
-</mat-form-field> -->

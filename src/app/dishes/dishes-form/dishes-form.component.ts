@@ -16,6 +16,12 @@ export class DishesFormComponent implements OnInit {
   @Input() restaurants!: Restaurant[];
   @Output() hideForm = new EventEmitter<boolean>();
 
+  dishTags: {name: string, value: string}[] = [
+    {name: 'Vegan', value: 'Vegan'},
+    {name: 'Vegetarian', value: 'Vegetarian'},
+    {name: 'Spicy', value: 'Spicy'},
+  ];
+
   dishDetails: FormGroup = new FormGroup({
     img: new FormControl(''),
     name: new FormControl(''),

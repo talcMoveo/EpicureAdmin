@@ -12,20 +12,27 @@
             <input type="text" [value]="dish ? dish.img : ''" formControlName="img" />
             <label>Price</label>
             <input type="text" [value]="dish ? dish.price : ''" formControlName="price" />
+            <!-- <label>Tags</label>
+            <div *ngFor="let tag of dishTags; let i = index">
+                <label>
+                    <input type="checkbox" [value]="tag.value" formControlName="tags" />
+                    {{ tag.name }}
+                </label>
+            </div> -->
             <label>Tags</label>
             <input type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
             <label>Restaurant</label>
             <div class="select-wrapper">
-                <select class="form-select" type="text" [value]="dish ? dish.restaurantRef : ''" formControlName="restaurantRef" >
-                    <!-- if there is resturant - show if not then no -->
+                <select class="form-select" type="text" [value]="dish ? dish.restaurantRef : ''"
+                    formControlName="restaurantRef">
                     <option> {{dish?.restaurantRef ? dish?.restaurantRef?.name : 'Choose Restaurant'}} </option>
-                    <!-- check not prev restaurant -->
                     <option *ngFor="let res of restaurants"> {{res.name}} </option>
                 </select>
             </div>
-            <label>Active</label>
-            <input type="checkbox" [checked]="dish ? dish.active : true"
-                formControlName="active" />
+            <label>
+                <input type="checkbox" [checked]="dish ? dish.active : true" formControlName="active" />
+                Active
+            </label>
             <button class="form-button" type="submit">Done</button>
             <button class="form-button cancel-button" type="button" (click)="closeForm()">Cancel</button>
         </form>
