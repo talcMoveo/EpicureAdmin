@@ -12,13 +12,15 @@
             <input type="text" [value]="dish ? dish.img : ''" formControlName="img" />
             <label>Price</label>
             <input type="text" [value]="dish ? dish.price : ''" formControlName="price" />
+            <!-- tags dropdown -->
             <!-- <label>Tags</label>
             <div *ngFor="let tag of dishTags; let i = index">
                 <label>
-                    <input type="checkbox" [value]="tag.value" formControlName="tags" />
+                    <input type="checkbox" [value]="tag.value" formControlName="tags"  checked="false"/>
                     {{ tag.name }}
                 </label>
             </div> -->
+            <!--  -->
             <label>Tags</label>
             <input type="text" [value]="dish ? dish.tags : ''" formControlName="tags" />
             <label>Restaurant</label>

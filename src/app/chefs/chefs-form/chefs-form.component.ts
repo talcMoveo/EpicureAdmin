@@ -1,8 +1,6 @@
-import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Chef } from 'src/app/models/chef.model';
-import { GetDataService } from 'src/app/shared/get-data.service';
-import { ManageDataService } from 'src/app/shared/manage-data.service';
 
 @Component({
   selector: 'app-chefs-form',
@@ -12,7 +10,8 @@ import { ManageDataService } from 'src/app/shared/manage-data.service';
 export class ChefsFormComponent implements OnInit, OnChanges {
   @Input() newChef!: boolean;
   @Input() chef!: Chef | undefined;
-  @Output() hideForm = new EventEmitter<boolean>();
+  @Input() clickEvent!: any;
+  @Output() hideForm = new EventEmitter<{ event: Chef | undefined, isNew: boolean, oldData: Chef | undefined }>();
 
   chefDetails: FormGroup = new FormGroup({
     img: new FormControl(''),
@@ -21,7 +20,7 @@ export class ChefsFormComponent implements OnInit, OnChanges {
     active: new FormControl(''),
   });
 
-  constructor(private manageData: ManageDataService, private getData: GetDataService) {
+  constructor(private _eref: ElementRef) {
   }
 
   ngOnInit(): void {
@@ -34,19 +33,15 @@ export class ChefsFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+    console.log('1', this.clickEvent);
+    console.log('2', this._eref.nativeElement);
   }
 
   onSubmit = () => {
-    console.log(this.chefDetails.value);
-    if (!this.chef) {
-      this.manageData.addItem('chefs', this.chefDetails.value);
-    } else {
-      this.manageData.editItem(this.chef._id.toString(), 'chefs', this.chefDetails.value);
-    }
-    this.closeForm();
+    this.hideForm.emit({ event: this.chefDetails.value, isNew: this.chef ? false : true, oldData: this.chef });
   }
 
   closeForm = () => {
-    this.hideForm.emit(true);
+    this.hideForm.emit({ event: undefined, isNew: true, oldData: undefined });
   }
 }

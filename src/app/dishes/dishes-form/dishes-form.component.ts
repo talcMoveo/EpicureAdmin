@@ -17,9 +17,9 @@ export class DishesFormComponent implements OnInit {
   @Output() hideForm = new EventEmitter<boolean>();
 
   dishTags: {name: string, value: string}[] = [
-    {name: 'Vegan', value: 'Vegan'},
-    {name: 'Vegetarian', value: 'Vegetarian'},
-    {name: 'Spicy', value: 'Spicy'},
+    {name: 'Vegan', value: 'vegan'},
+    {name: 'Vegetarian', value: 'vegetarian'},
+    {name: 'Spicy', value: 'spicy'},
   ];
 
   dishDetails: FormGroup = new FormGroup({
@@ -60,8 +60,8 @@ export class DishesFormComponent implements OnInit {
     this.closeForm();
   }
 
-  getRestaurantRef = (restaurantName: string): Restaurant | undefined => {
-    let restaurantId: any;
+  getRestaurantRef = (restaurantName: string): string | number | undefined => {
+    let restaurantId: string | number | undefined;
     this.restaurants.forEach(restaurant => {
       if (restaurant.name === restaurantName) {
         restaurantId =  restaurant._id;
@@ -72,5 +72,12 @@ export class DishesFormComponent implements OnInit {
 
   closeForm = () => {
     this.hideForm.emit(true);
+  }
+
+  isChecked = (tag: {name: string, value: string}) => {
+    console.log('tag: ', tag);
+    console.log('dish: ', this.dish);
+    console.log(this.dish?.tags.includes(tag.value));
+    return false;
   }
 }

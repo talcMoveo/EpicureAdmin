@@ -1,8 +1,8 @@
 <div class="app-wrapper">
   <nav class="nav-wrapper">
-    <a class="nav-link" routerLink="/chefs">chefs</a>
-    <a class="nav-link" routerLink="/dishes">dishes</a>
-    <a class="nav-link" routerLink="/restaurants">restaurants</a>
+    <a class="nav-link" routerLink="/chefs" [routerLinkActive]="['is-active']">chefs</a>
+    <a class="nav-link" routerLink="/dishes" [routerLinkActive]="['is-active']">dishes</a>
+    <a class="nav-link" routerLink="/restaurants" [routerLinkActive]="['is-active']">restaurants</a>
   </nav>
   
   <router-outlet></router-outlet>

@@ -98,6 +98,7 @@
     flex-direction: column;
     align-content: center;
     gap: 20px;
+    min-height: max-content;
     .add-new-button {
         align-self: center;
         padding: 5px 20px;

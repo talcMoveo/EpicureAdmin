@@ -1,5 +1,8 @@
 import { HttpClient, HttpContext, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Chef } from '../models/chef.model';
+import { Dish } from '../models/dish.model';
+import { Restaurant } from '../models/restaurant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +13,12 @@ export class ManageDataService {
 
   constructor(private http: HttpClient) { }
 
-  addItem = (collection: string, newData: any) => {
+  addItem = (collection: string, newData: Chef | Dish | Restaurant) => {
     return(this.http.post(`${this.rest_api}/${collection}`, newData).subscribe((res) => {
     }));
   }
 
-  editItem = (id: string, collection: string, newData: any) => {
+  editItem = (id: string, collection: string, newData: Chef | Dish | Restaurant) => {
     return(this.http.patch(`${this.rest_api}/${collection}/${id}`, newData).subscribe((res) => {
     }));
   }

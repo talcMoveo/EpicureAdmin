@@ -53,23 +53,21 @@ export class RestaurantsFormComponent implements OnInit {
     this.closeForm();
   }
 
-  getChefRef = (chefName: string): Chef | undefined => {
-    let chefId: any;
+  getChefRef = (chefName: string): string | number | undefined => {
+    let chefId: string | number | undefined;
     this.chefs.forEach(chef => {
       if (chef.name === chefName) {
         chefId =  chef._id;
-        return chefId;
       }
     });
     return chefId;
   }
 
-  getDishRef = (dishName: string): Dish | undefined => {
-    let dishId: any;
+  getDishRef = (dishName: string): string | number | undefined => {
+    let dishId: string | number | undefined;
     this.signatureDishes.forEach(dish => {
       if (dish.name === dishName) {
         dishId =  dish._id;
-        return dishId;
       }
     });
     return dishId;
